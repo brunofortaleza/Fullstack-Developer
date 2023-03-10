@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Bem-vindo ao meu aplicativo</h1>
+      <p>Esta é a página inicial do meu aplicativo.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Perfil de usuário</h5>
+          <p class="card-text">Visualize e edite as informações do seu perfil.</p>
+          <%= link_to 'Ir para o perfil', edit_user_registration_path(current_user&.id), class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Registro</h5>
+          <p class="card-text">Criar uma nova conta.</p>
+          <%= link_to 'Criar uma conta', new_user_registration_path, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
