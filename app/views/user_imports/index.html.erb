@@ -1,0 +1,29 @@
+<h1>Importações</h1>
+
+<%= form_with url: user_imports_path, local: true do |form| %>
+  <%= form.file_field :file %>
+  <%= form.submit "Adicionar Dados", class:"btn btn-primary my-2" %>
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Arquivo</th>
+      <th>Status</th>
+      <th>Total de linhas</th>
+      <th>Data de criação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @imports.each do |import| %>
+      <tr>
+        <td><%= import.id %></td>
+        <td><%= import.file_name %></td>
+        <td><%= import.status %></td>
+        <td><%= import.total_rows %></td>
+        <td><%= import.created_at.strftime("%d/%m/%Y %H:%M:%S") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
