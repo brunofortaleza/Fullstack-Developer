@@ -48,9 +48,30 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Authentication
+gem "devise", "~> 4.9"
+gem "devise-i18n", "~> 1.11"
+# Authorization
+gem 'cancancan'
+# Frontend tools
+gem "cssbundling-rails", "~> 1.1"
+gem "jsbundling-rails", "~> 1.1"
+gem "chartkick"
+# Background processing for Ruby 
+gem 'redis', '~> 4.0'
+gem 'sidekiq', '~> 6.0.6'
+# Roo implements read access for all common spreadsheet types
+gem "roo", "~> 2.10.0"
+# Upload files
+gem 'carrierwave'
+gem 'mini_magick'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  gem 'pry'
+  gem 'pry-rails'
 end
 
 group :development do
