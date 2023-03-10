@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Dados do usuário</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="text-center">
+        <% if current_user&.avatar_image_url %>
+          <%= image_tag current_user&.avatar_image_url, class: "img-fluid rounded-circle mb-3", alt: "Avatar" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <p><%= current_user.email %></p>
+          </div>
+
+          <div class="form-group">
+            <label for="full_name">Nome completo</label>
+            <p><%= current_user.full_name %></p>
+          </div>
+
+          <div class="form-group">
+            <label for="role">Função</label>
+            <p><%= current_user.role %></p>
+          </div>
+        </div>
+      </div>
+        <div class="btn-group">
+          <%= link_to 'Editar', edit_user_path(@user), class: 'btn btn-primary' %>
+          <%= button_to "Excluir", user_path(@user), method: :delete, class: "btn btn-danger" %>
+        </div>
+    </div>
+  </div>
+</div>

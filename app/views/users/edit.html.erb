@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Editar usuário</h2>
+  <%= form_for @user do |f| %>
+    <div class="form-group">
+      <%= f.label :email, class: 'form-label' %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :avatar_image %>
+      <%= f.file_field :avatar_image, class: "form-control-file" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password, class: 'form-label' %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', required: true %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> mínimo de caracteres</em>
+      <% end %>
+    </div>
+
+    <div class="actions mt-2">
+      <%= f.submit "Salvar", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+  <hr>
+
+  <h3>Excluir conta?</h3>
+  <div class="row">
+    <div class="col-md-11">
+      <%= button_to "Excluir", user_path(@user), data: { confirm: "Tem certeza que deseja excluir o perfil?" }, method: :delete, class: "btn btn-danger" %>
+    </div>
+    <div class="col-md-1 text-right">
+      <%= link_to "Voltar", :back, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>

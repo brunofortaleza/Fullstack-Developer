@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <h1>Usuários</h1>
+  <%= link_to 'Novo usuário', new_user_path, class: 'btn btn-primary float-right mb-3' %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Função</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= image_tag(user.avatar_image_url(:thumb).to_s) %></td>
+          <td><%= user.full_name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.role %></td>
+          <td>
+            <div class="btn-group">
+            <%= link_to 'Editar', edit_user_path(user), class: 'btn btn-sm btn-outline-secondary' %>
+            <%= button_to "Excluir", user_path(user), method: :delete, class: "btn btn-sm btn-outline-danger" %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
