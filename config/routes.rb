@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  require 'sidekiq/web'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  mount Sidekiq::Web => '/sidekiq'
+
+  root to: 'home#index'
+  devise_for :users
+
+  get 'dashboard', to: 'dashboard#index', as: :dashboard
+
+  resources :users
+  resources :user_imports, only: [:index, :new, :create]
 end
