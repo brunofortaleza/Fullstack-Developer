@@ -14,14 +14,6 @@ class UserImportsController < ApplicationController
       UserImportService.new(params[:file].path, import.id).run
       redirect_to user_imports_path, notice: "A importação foi iniciada com sucesso!"
     end
-
-    # @import = Import.new(import_params)
-    # if @import.save
-    #   ImportWorker.perform_async(@import.id)
-    #   redirect_to imports_path, notice: "A importação foi iniciada com sucesso!"
-    # else
-    #   render :new
-    # end
   end
 
   private
